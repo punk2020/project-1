@@ -1,0 +1,18 @@
+.nav {
+    grid-area: n;
+    background-color: rgb(58, 182, 58);
+    margin-right: 10px;
+  }
+
+  .item {
+      color: black;
+      text-align: center;
+      text-decoration: none;
+  }
+
+  .item a.active{
+    color: gold;
+  }
+  .indent{
+    margin-bottom: 30px;
+}
