@@ -1,22 +1,9 @@
 import React from 'react';
 import c from './Dialogs.module.css';
-
+import DialogItem from './DialogItem/DialogItem'
+import Message from './Message/Message';
 
 const Dialogs = (props) => {
-
-    const Message = (props) => {
-        return (
-            <div className={c.dialog}>{props.msg}</div>
-        );
-    }
-
-    const DialogItem = (props) => {
-        return (
-            <div>
-                {props.name}
-            </div>
-        )
-    }
 
     let dialogs = [
         { id: 1, name: 'Danon' },
