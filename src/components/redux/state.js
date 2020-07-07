@@ -7,6 +7,7 @@ let state = {
         ],
     },
     dialogsPage: {
+        //Your ad may be here
         messages: [
             { id: 1, msg: 'hello' },
             { id: 2, msg: 'how are u?' }
