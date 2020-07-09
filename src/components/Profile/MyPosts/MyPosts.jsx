@@ -5,14 +5,11 @@ import Post from './Post/Post';
 function MyPosts(props) {
 
   let NewPost = React.createRef();
-
-    let addpost = () => {
-      let text = NewPost.current.value;
-      alert(text);
-      //отсылка на Cyberpunk2077
-    }
-
-
+  
+  let addpost = () =>{
+  let text = NewPost.current.value;
+  props.addPost(text);
+  }
   let postsElements = props.posts.map(post => <Post message={post.message} id={post.id} likesCount={post.likesCount} />)
 
   return (
