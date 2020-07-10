@@ -6,6 +6,7 @@ let state = {
             { id: 1, message: 'Hello world', likesCount: 11 },
             { id: 2, message: 'It`s my firs post', likesCount: 0 }
         ],
+        newPostText: 'wake the fuck up samurai'
     },
     dialogsPage: {
         //Your ad may be here
@@ -29,6 +30,11 @@ export let addPost = (PostMessage) =>{
         likesCount: 0
     }
 state.profilePage.posts.push(newPost);
+RenderEntireTree(state);
+};
+
+export let updateNewPostText = (NewText) =>{
+state.profilePage.newPostText = NewText;
 RenderEntireTree(state);
 };
 
