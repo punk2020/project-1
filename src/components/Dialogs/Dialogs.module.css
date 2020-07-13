@@ -1,3 +1,12 @@
-.dialog {
-    padding: 10px;
+.dialogs{
+    display: flex;
+    margin: 10px;
+}
+
+.dialogs_item{
+margin-right: 300px;
+}
+
+.textArea{
+    height: 15px;
 }

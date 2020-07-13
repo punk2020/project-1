@@ -17,8 +17,11 @@ let state = {
         //Your ad may be here
         messages: [
             { id: 1, msg: 'hello' },
-            { id: 2, msg: 'how are u?' }
+            { id: 2, msg: 'how are u?' },
+            { id: 3, msg: 'why are u ignoring me?'},
+            { id: 4, msg: 'stop it' }
         ],
+        NewMessageText: "",
         dialogs: [
             { id: 1, name: 'Danon' },
             { id: 2, name: 'Vanon' },
@@ -26,6 +29,20 @@ let state = {
             { id: 4, name: 'Vitalya' }
         ]
     }
+}
+
+export let addMessage = () => {
+    let NewMessage = {
+        id: 5,
+        msg: state.dialogsPage.NewMessageText
+    }
+    state.dialogsPage.messages.push(NewMessage);
+    state.dialogsPage.NewMessageText = '';
+    RenderEntireTree(state);
+}
+export let updateNewMessageText = (NewMessage) =>{
+    state.dialogsPage.NewMessageText = NewMessage;
+    RenderEntireTree(state);
 }
 
 export let addPost = () =>{

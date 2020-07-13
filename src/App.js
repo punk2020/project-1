@@ -22,7 +22,9 @@ function App(props) {
              />
           <Route path='/dialogs'
             render={() => <Dialogs
-             state = {props.state.dialogsPage} />} />
+             state = {props.state.dialogsPage} 
+             addMessage = {props.addMessage}
+             updateNewMessageText = {props.updateNewMessageText}/>} />
         </div>
       </div>
     </BrowserRouter>

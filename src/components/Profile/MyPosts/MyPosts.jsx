@@ -10,7 +10,6 @@ function MyPosts(props) {
   let onPostChange = () => {
     let text = NewPost.current.value;
     props.updateNewPostText(text);
-
   }
 
   let postsElements = props.posts.map(post => <Post message={post.message} id={post.id} likesCount={post.likesCount} />)
