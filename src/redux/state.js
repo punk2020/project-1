@@ -1,11 +1,5 @@
-let RenderEntireTree = () =>{
-}
-
-export const subscribe = (observer) =>{
-    RenderEntireTree = observer;
-}
-
-let state = {
+let store ={
+   _state:  {
     profilePage: {
         posts: [
             { id: 1, message: 'Hello world', likesCount: 11 },
@@ -29,36 +23,44 @@ let state = {
             { id: 4, name: 'Vitalya' }
         ]
     }
-}
-
-export let addMessage = () => {
+},
+getState(){
+return this._state;
+},
+_callSubscriber() {
+},
+subscribe(observer){
+    this._callSubscriber = observer;
+},
+addMessage(){
     let NewMessage = {
         id: 5,
-        msg: state.dialogsPage.NewMessageText
+        msg: this._state.dialogsPage.NewMessageText
     }
-    state.dialogsPage.messages.push(NewMessage);
-    state.dialogsPage.NewMessageText = '';
-    RenderEntireTree(state);
-}
-export let updateNewMessageText = (NewMessage) =>{
-    state.dialogsPage.NewMessageText = NewMessage;
-    RenderEntireTree(state);
-}
-
-export let addPost = () =>{
+    this._state.dialogsPage.messages.push(NewMessage);
+    this._state.dialogsPage.NewMessageText = '';
+    this._callSubscriber(this._state);
+},
+updateNewMessageText(NewMessage){
+    this._state.dialogsPage.NewMessageText = NewMessage;
+    this._callSubscriber(this._state);
+},
+addPost (){
+    debugger;
     let newPost = {
         id: 5,
-        message: state.profilePage.newPostText,
+        message: this._state.profilePage.newPostText,
         likesCount: 0
     }
-state.profilePage.posts.push(newPost);
-state.profilePage.newPostText = '';
-RenderEntireTree(state);
-};
+    this._state.profilePage.posts.push(newPost);
+    this._state.profilePage.newPostText = '';
+this._callSubscriber(this._state);
+},
+updateNewPostText (NewText){
+    this._state.profilePage.newPostText = NewText;
+    this._callSubscriber(this._state);
+    }
+}
 
-export let updateNewPostText = (NewText) =>{
-state.profilePage.newPostText = NewText;
-RenderEntireTree(state);
-};
-
-export default state;
+export default store;
+window.store = store
