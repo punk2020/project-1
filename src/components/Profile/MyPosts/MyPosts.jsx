@@ -6,10 +6,15 @@ function MyPosts(props) {
 
   let NewPost = React.createRef();
 
- 
+  let AddPost = () => {
+    props.dispatch({ type: 'ADD-POST' });
+  }
   let onPostChange = () => {
     let text = NewPost.current.value;
-    props.updateNewPostText(text);
+    props.dispatch({
+      type: 'UPDATE-NEW-POST-TEXT',
+      NewText: text
+    });
   }
 
   let postsElements = props.posts.map(post => <Post message={post.message} id={post.id} likesCount={post.likesCount} />)
@@ -20,7 +25,7 @@ function MyPosts(props) {
       <div classname={c.addpost}>
         <textarea onChange={onPostChange} ref={NewPost} value={props.newPostText} />
         <div></div>
-        <button onClick={props.addPost}>Add post</button>
+        <button onClick={AddPost}>Add post</button>
       </div>
       <div>
         {postsElements}
@@ -28,5 +33,4 @@ function MyPosts(props) {
     </div>
   );
 }
-//123
 export default MyPosts;
