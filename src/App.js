@@ -16,13 +16,12 @@ function App(props) {
         <div className={c.app_wrapper_content}>
           <Route path='/profile'
             render={() => <Profile
-              state={props.state.profilePage} 
-              dispatch ={props.dispatch} />}
-             />
+              state={props.state.profilePage}
+              dispatch={props.dispatch} />} />
           <Route path='/dialogs'
             render={() => <Dialogs
-             state = {props.state.dialogsPage} 
-             dispatch = {props.dispatch}/>} />
+              state={props.state.dialogsPage}
+              dispatch={props.dispatch} />} />
         </div>
       </div>
     </BrowserRouter>
