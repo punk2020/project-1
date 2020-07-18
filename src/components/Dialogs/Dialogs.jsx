@@ -2,19 +2,18 @@ import React from 'react';
 import c from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message';
+import { updateNewMessagetTextActionCreator, addMessageActionACreator } from '../../redux/state';
 
 const Dialogs = (props) => {
 
     let NewMessage = React.createRef();
-let addMessage = () =>{
-    props.dispatch({type: 'ADD-MESSAGE'});
-}
+
+    let addMessage = () => {
+        props.dispatch( addMessageActionACreator() )
+    }
     let onMessageChange = () => {
         let text = NewMessage.current.value;
-        props.dispatch({
-            type: 'UPDATE-NEW-MESSAGE-TEXT',
-            NewMessage: text 
-        });
+        props.dispatch (updateNewMessagetTextActionCreator(text));
     }
 
 
@@ -28,9 +27,14 @@ let addMessage = () =>{
             </div>
             <div className={c.dialogs_item}>
                 {messagesElements}
-                <textarea className={c.textArea} ref={NewMessage} onChange={onMessageChange} value = {props.state.NewMessageText}/>
+                <textarea 
+                className={c.textArea} 
+                ref={NewMessage} 
+                onChange={onMessageChange} 
+                value={props.state.NewMessageText} 
+                placeholder = 'Enter ur message samurai'/>
                 <div />
-                <button onClick = { addMessage }>Send</button>
+                <button onClick={addMessage}>Send</button>
             </div>
         </div>
     );

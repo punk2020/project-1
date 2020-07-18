@@ -1,3 +1,4 @@
+
 let store = {
     _state: {
         profilePage: {
@@ -5,7 +6,7 @@ let store = {
                 { id: 1, message: 'Hello world', likesCount: 11 },
                 { id: 2, message: 'It`s my firs post', likesCount: 0 }
             ],
-            newPostText: 'wake the fuck up samurai'
+            newPostText: ''
         },
         dialogsPage: {
             //Your ad may be here
@@ -71,11 +72,26 @@ export const addPostActionCreator = () => {
     }
 }
 
-export const updateNewPostTextActionCreatir = (text) => {
+export const updateNewPostTextActionCreator = (text) => {
     return {
         type: 'UPDATE-NEW-POST-TEXT',
         NewText: text
     }
 }
-    export default store;
-    window.store = store
+
+export const addMessageActionACreator = () => {
+    return {
+        type: 'ADD-MESSAGE'
+    }
+}
+
+export const updateNewMessagetTextActionCreator = (text) => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE-TEXT',
+        NewMessage: text
+    }
+}
+
+
+export default store;
+window.store = store
