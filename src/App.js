@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './components/Header/Header.jsx';
-import NavBar from './components/NavBar/NavBar.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Route, BrowserRouter } from 'react-router-dom';
@@ -12,7 +11,6 @@ function App(props) {
     <BrowserRouter>
       <div className={c.app_wrapper}>
         <Header />
-        <NavBar />
         <div className={c.app_wrapper_content}>
           <Route path='/profile'
             render={() => <Profile

@@ -8,7 +8,7 @@ function ProfileInfo() {
         <img src="https://www.pinclipart.com/picdir/middle/49-490443_avatar-icon-tlcharger-avatar-icon-clipart.png" />
         Name
         </div>
-      <div className={c.description}><textarea maxLength='200' wrap="soft">Description</textarea></div>
+      <div className={c.description}><textarea maxLength='200' wrap="soft" placeholder = 'Ur description samurai'/></div>
     </div>
   );
 }
