@@ -2,23 +2,24 @@ import React from 'react';
 import c from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message';
-import { updateNewMessagetTextActionCreator, addMessageActionACreator } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
+    
+    let state = props.dialogsPage;
 
     let NewMessage = React.createRef();
 
     let addMessage = () => {
-        props.dispatch(addMessageActionACreator())
+        props.addMessage();
     }
     let onMessageChange = () => {
         let text = NewMessage.current.value;
-        props.dispatch(updateNewMessagetTextActionCreator(text));
+        props.updateNewMessagetText(text);
     }
 
 
-    let dialogElements = props.state.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
-    let messagesElements = props.state.messages.map(message => <Message msg={message.msg} id={message.id} />);
+    let dialogElements = state.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
+    let messagesElements = state.messages.map(message => <Message msg={message.msg} id={message.id} />);
 
     return (
         <div className={c.dialogs}>
@@ -31,7 +32,7 @@ const Dialogs = (props) => {
                     className={c.textArea}
                     ref={NewMessage}
                     onChange={onMessageChange}
-                    value={props.state.NewMessageText}
+                    value={state.NewMessageText}
                     placeholder='Enter ur message samurai' />
                 <div />
                 <button onClick={addMessage}>Send</button>

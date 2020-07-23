@@ -1,17 +1,15 @@
 import React from 'react';
 import c from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 function Profile(props) {
   return (
     <div className={c.content}>
       <img className={c.img} src='https://www.iguides.ru/upload/medialibrary/00f/00fecceb15869ee06c2c53fdb8af87ae.jpg' />
       <ProfileInfo />
-      <MyPosts
-        posts={props.state.posts}
-        newPostText = {props.state.newPostText}
-        dispatch = {props.dispatch}/>
+      <MyPostsContainer
+        store={props.store} />
     </div>
   );
 }
