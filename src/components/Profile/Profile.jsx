@@ -8,8 +8,7 @@ function Profile(props) {
     <div className={c.content}>
       <img className={c.img} src='https://www.iguides.ru/upload/medialibrary/00f/00fecceb15869ee06c2c53fdb8af87ae.jpg' />
       <ProfileInfo />
-      <MyPostsContainer
-        store={props.store} />
+      <MyPostsContainer />
     </div>
   );
 }

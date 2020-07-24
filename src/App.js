@@ -14,13 +14,9 @@ function App(props) {
         <div className={c.app_wrapper_content}>
           <Route path='/profile'
             render={() =>
-              <Profile
-                store={props.store}
-              />}
-          />
+              <Profile />} />
           <Route path='/dialogs'
-            render={() => <DialogsContainer
-              store = {props.store}/>} />
+            render={() => <DialogsContainer />} />
         </div>
       </div>
     </BrowserRouter>
