@@ -4,14 +4,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './redux/redux-store';
-import StoreContext from './redux/StoreContext';
+import { Provider } from 'react-redux';
 
 export let RenderEntireTree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <StoreContext.Provider value = {store}>
+      <Provider store = {store}>
       <App />
-      </StoreContext.Provider>
+      </Provider>
     </React.StrictMode>,
     document.getElementById('root')
   );
