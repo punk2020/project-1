@@ -4,7 +4,7 @@ import Profile from './components/Profile/Profile.jsx';
 import { Route, BrowserRouter } from 'react-router-dom';
 import c from './App.module.css';
 import DialogsContainer from './components/Dialogs/DialogsContainer.jsx';
-import Users from './components/Users/Users.jsx';
+import UsersContainer from './components/Users/UsersContainer.jsx';
 
 
 function App(props) {
@@ -25,7 +25,7 @@ function App(props) {
 
 
           <Route path='/users'
-            render={() => <Users />} />
+            render={() => <UsersContainer />} />
 
 
         </div>
